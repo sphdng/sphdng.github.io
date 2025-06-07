@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>A Look Into Psychometric Matchmaking - Sophia Deng</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            color: #333;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        .post {
+            margin: 2rem 0;
+        }
+        .post h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .post h3 {
+            font-size: 1.3rem;
+            margin: 2rem 0 1rem 0;
+            color: #333;
+        }
+        .post p {
+            margin-bottom: 1.2rem;
+        }
+        .post ul, .post ol {
+            margin: 1.2rem 0;
+            padding-left: 2rem;
+        }
+        .post li {
+            margin-bottom: 0.8rem;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <a href="/" class="back-link">← Back to home</a>
+    
+    <div class="post">
+        <h1>A Look Into Psychometric Matchmaking</h1>
+        <div class="date">June 2025</div>
+        
+        <p>With a lot of modern dating apps, values-based compatibility is missing.</p>
+        <p>To combat this, would a more niche audience that reads the same content have shared core traits that would lead to compatibility?</p>
+        <p>We've been working on psychometrically-informed matchmaking for romantic and platonic connections.</p>
+        <p>I've been exploring values-based compatibility through a psychometrically informed approach to both romantic and platonic matchmaking.</p>
+
+        <h2>Why Psychometrics?</h2>
+        <p>Psychometrics is the science of measuring psychological traits like values, personality, and preferences. These tools have been widely used in research, education, and hiring—but are surprisingly underutilized in the world of dating and friendship.</p>
+        <p>To tap into this potential, I built a 70-question survey designed to surface subtle differences in people's worldviews, habits, and values.</p>
+        <p>But raw survey responses alone aren't enough—they're messy and redundant. That's where dimensionality reduction comes in.</p>
+
+        <h2>A Primer on Factor Analysis (and Friends)</h2>
+        <p>When we collect data from surveys, we often end up with dozens of overlapping questions. Some might be subtly asking the same thing. Dimensionality reduction helps us group these questions together and reduce noise.</p>
+        <p>Let's break down a few core approaches:</p>
+        <ul>
+            <li><strong>Principal Component Analysis (PCA):</strong> Uses variance to create orthogonal (uncorrelated) components. It works best with continuous data but isn't great for interpreting psychological meaning.</li>
+            <li><strong>Factor Analysis (FA):</strong> Based on correlation, FA doesn't work directly on the data matrix—it starts with the correlation matrix instead. It's ideal for uncovering latent psychological traits.</li>
+            <li><strong>Multiple Correspondence Analysis (MCA):</strong> A cousin of FA for categorical data.</li>
+            <li><strong>Item Response Theory (IRT):</strong> Maps people and questions on the same scale—great when you care about specific items or want precise measurement of individuals.</li>
+            <li><strong>Clustering:</strong> Groups individuals (not questions), either using hard partitions like k-means or soft, probabilistic approaches like Latent Class Analysis.</li>
+        </ul>
+        <p>In my work, I used factor analysis because I wanted to understand how questions group together to form underlying personality dimensions.</p>
+
+        <h2>Interpreting Factor Analysis in Practice</h2>
+        <p>Imagine trying to summarize someone's personality based on 70 different signals. Factor analysis helps boil these down into a smaller set of meaningful traits.</p>
+        <p>To determine how many factors to keep, I looked at the proportion of variance explained by each. A common technique is to plot the percentage of variance explained and choose the number of factors just before the curve levels off.</p>
+        <div style="text-align:center; margin: 2rem 0;">
+            <img src="../images/psychometric-matchmaking/factor-variance-barplot.png" alt="Component vs. Percentage of Variance for Factor Analysis" style="max-width:100%; height:auto;">
+            <div style="font-size:0.95rem; color:#666; margin-top:0.5rem;">Component vs. Percentage of Variance for Factor Analysis</div>
+        </div>
+        <p>I ultimately retained 10 factors—each representing a constellation of traits that tend to co-occur.</p>
+
+        <h2>Let's look at one of them: Group 3 </h2>
+        <p>This group had high positive loadings for:</p>
+        <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+            <table style="margin: 0 auto 1.5rem auto; border-collapse: collapse; min-width: 220px; max-width: 300px; width: 100%;">
+                <caption style="caption-side:top; font-weight:bold; margin-bottom:0.5rem;">High (positive) loadings</caption>
+                <thead>
+                    <tr><th style='padding:4px 12px; border-bottom:1px solid #ccc;'>Variable</th><th style='padding:4px 12px; border-bottom:1px solid #ccc;'>Loading</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>religious_spiritual</td><td>0.2959145723</td></tr>
+                    <tr><td>genius</td><td>0.4553713048</td></tr>
+                    <tr><td>learning_growing</td><td>0.3672776595</td></tr>
+                    <tr><td>original_thinker</td><td>0.6599414324</td></tr>
+                    <tr><td>fun_hang</td><td>0.3683874929</td></tr>
+                    <tr><td>unusual_person</td><td>0.6666086073</td></tr>
+                    <tr><td>curious</td><td>0.4241939899</td></tr>
+                </tbody>
+            </table>
+            <table style="margin: 0 auto; border-collapse: collapse; min-width: 220px; max-width: 300px; width: 100%;">
+                <caption style="caption-side:top; font-weight:bold; margin-bottom:0.5rem;">Low (negative) loadings</caption>
+                <thead>
+                    <tr><th style='padding:4px 12px; border-bottom:1px solid #ccc;'>Variable</th><th style='padding:4px 12px; border-bottom:1px solid #ccc;'>Loading</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>easily_offended</td><td>-0.1528639213</td></tr>
+                    <tr><td>offended_right_now</td><td>-0.0850929810</td></tr>
+                    <tr><td>have_great_friends</td><td>-0.1425577810</td></tr>
+                    <tr><td>life_shit_sandwich</td><td>-0.0785357352</td></tr>
+                    <tr><td>busy</td><td>-0.0927532679</td></tr>
+                    <tr><td>love_complain</td><td>-0.0778617153</td></tr>
+                    <tr><td>coffee_drinker</td><td>-0.0877054589</td></tr>
+                    <tr><td>regimented_schedule</td><td>-0.0544362525</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p>How to read this: A high positive loading means that people who score highly on this factor tend to strongly agree with that item. A negative loading implies the reverse. So, someone in Group 3 likely identifies as curious, intellectually adventurous, and a bit unconventional—and probably doesn't like rigid routines or complain much.</p>
+
+        <h2>From Traits to Matches</h2>
+        <p>Once everyone's survey was reduced to these 10 dimensions, I could begin calculating compatibility.</p>
+        <p>Here's how the matchmaking process works:</p>
+        <ol>
+            <li><strong>Build a Personal Matching Pool:</strong> Filter potential matches based on gender, location, and other logistics.</li>
+            <li><strong>Score Compatibility:</strong> For romantic matches, I use a blend of similarity and complementarity. For platonic matches, shared values are more prioritized. Factor groups are used as a factor for compatibility computation</li>
+            <li><strong>Apply Matching Logic:</strong> For platonic pairings, I use the Gale-Shapley stable matching algorithm, to ensure mutual top-choice assignments.</li>
+            <li><strong>Deliver Results:</strong> Each participant gets:
+                <ul>
+                    <li>Top 2 romantic matches, ranked by compatibility.</li>
+                    <li>1 stable platonic match, mutually optimized.</li>
+                </ul>
+            </li>
+        </ol>
+
+        
+        <h2>Looking Ahead</h2>
+        <p>This approach is still evolving, and I'm exploring deeper models—like IRTrees (which model decision processes), which will hopefully lead to more personalized insights.</p>
+        <p>But at its heart, this work is about something simple: helping people find each other!</p>
+        <p>Want to get involved or learn more? Reach out at <a href="mailto:hisophiadeng@gmail.com">hisophiadeng@gmail.com</a>.</p>
+    </div>
+</body>
+</html> 
